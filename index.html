@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات ساختمانی محمد خیری هدک | بردسکن</title>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #2c3e50;
+            --text-color: #333333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --rubika-gradient: linear-gradient(135deg, #1d9aff 0%, #7910ff 100%);
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* هدر سایت */
+        header {
+            background: linear-gradient(135deg, #1e272e 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #f1c40f;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2rem;
+            color: #ecf0f1;
+        }
+
+        /* کانتینر اصلی */
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* بخش مهندسی و نظارت */
+        .badge-notice {
+            background-color: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            font-size: 1.05rem;
+        }
+
+        /* کارت‌های خدمات */
+        .services-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-right: 6px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .service-card h2 {
+            margin: 0 0 15px 0;
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-list li::before {
+            content: "•";
+            margin-left: 10px;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-card.blue-theme { border-right-color: #3498db; }
+        .service-card.blue-theme .service-list li::before { color: #3498db; }
+
+        .service-card.orange-theme { border-right-color: #e67e22; }
+        .service-card.orange-theme .service-list li::before { color: #e67e22; }
+
+        /* ==========================================================
+           استایل جدید: تصاویر فوق‌العاده بزرگ و تک‌ستونه
+           ========================================================== */
+        .gallery-title {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin: 40px 0 20px 0;
+            border-right: 4px solid var(--secondary-color);
+            padding-right: 10px;
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-direction: column; /* چیدمان زیر هم برای باز شدن فضا */
+            gap: 35px;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+            border: 1px solid #eef2f3;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%; /* استفاده از کل پهنای باکس اصلی سایت */
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto; /* حذف محدودیت ارتفاع تا عکس با تناسب کامل و بسیار بزرگ باز شود */
+            max-height: 500px; /* حداکثر ارتفاع برای جلوگیری از اسکرول بیش از حد */
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item p {
+            margin: 0;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            background: #ffffff;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        /* بخش تماس با ما */
+        .contact-card {
+            background: linear-gradient(135deg, #2c3e50 0%, #1e272e 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-top: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .contact-card h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.2rem;
+            color: #f1c40f;
+        }
+
+        .phone-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            align-items: center;
+        }
+
+        .btn-phone {
+            background-color: #27ae60;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+            max-width: 300px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-phone:hover {
+            background-color: #219653;
+            transform: scale(1.02);
+        }
+
+        .btn-rubika {
+            background: var(--rubika-gradient);
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: opacity 0.3s, transform 0.2s;
+            display: inline-block;
+            max-width: 300px;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(121, 16, 255, 0.3);
+        }
+
+        .btn-rubika:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .management {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #bdc3c7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>خدمات ساختمانی در شهرستان بردسکن و حومه</h1>
+        <p>محمد خیری هدک</p>
+    </header>
+
+    <main>
+        <div class="badge-notice">
+            تمام کارها زیر نظر مهندسین مجرب نظام مهندسی شهرستان بردسکن می باشد.
+        </div>
+
+        <!-- بخش خدمات -->
+        <div class="services-section">
+            <div class="service-card">
+                <h2>جوشکاری سیار و خدمات تخصصی</h2>
+                <ul class="service-list">
+                    <li>نصب ورق سایبان منزل</li>
+                    <li>نصب والپست و نبشی کشی ساختمان</li>
+                    <li>نصب رابیس با تفنگ روی دیوارهای بتنی</li>
+                    <li>نصب صفحه روی دیوارهای بتنی</li>
+                    <li>نصب میلگرد بستر در ساختمان‌های بتنی</li>
+                    <li>پیکور کاری سبک و سنگین</li>
+                </ul>
+            </div>
+
+            <div class="service-card blue-theme">
+                <h2>تاسیسات ساختمانی</h2>
+                <ul class="service-list">
+                    <li>خدمات لوله کشی ساختمانی</li>
+                    <li>خدمات برق کشی ساختمانی</li>
+                </ul>
+            </div>
+
+            <div class="service-card orange-theme">
+                <h2>تخریب و بازسازی</h2>
+                <ul class="service-list">
+                    <li>تخریب منازل مسکونی قدیمی</li>
+                    <li>اجرای صفر تا صد همراه با گروه فنی سریع</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- بخش تصاویر نمونه کارها -->
+        <h2 class="gallery-title">تصاویر نمونه کارهای انجام شده</h2>
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="joshkari.jpg" alt="نمونه کار جوشکاری و سایبان">
+                <p>اجرای سایبان و جوشکاری</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="walpost.jpg" alt="نمونه کار والپست و نبشی کشی">
+                <p>نبشی‌کشی و وال‌پست</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="lulekashi.jpg" alt="نمونه کار لوله کشی و تاسیسات">
+                <p>تاسیسات و لوله‌کشی</p>
+            </div>
+
+        </div>
+
+        <!-- کارت تماس -->
+        <div class="contact-card">
+            <h3>اطلاعات تماس و کانال روبیکا</h3>
+            <p>جهت هماهنگی، سفارش کار یا عضویت در کانال روبیکا از دکمه‌های زیر استفاده کنید:</p>
+            <div class="phone-buttons">
+                <a href="tel:09157693639" class="btn-phone">تماس: 09157693639</a>
+                <a href="tel:09358425135" class="btn-phone">تماس: 09358425135</a>
+                <a href="https://rubika.ir" target="_blank" class="btn-rubika">📢 کانال جوشکاری و پیکور در روبیکا</a>
+            </div>
+            <div class="management">مدیریت: محمد خیری هدک</div>
+        </div>
+    </main>
+
+    <footer>
